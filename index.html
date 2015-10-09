@@ -10,13 +10,13 @@ var ballSpeedX = 10;
 var ballSpeedY = 5;
 var player = 0;
 
-var level = 10;
+var level = 1;
 
 var scoreL = 0;
 var scoreR = 0;
 
 var wine=0;
-var botLevel = 5; //kazhuva kolku se dvizhi botot
+var botLevel = 8; //kazhuva kolku se dvizhi botot
 
 var palkalY = 250;
 var palkalX = 5;
@@ -131,7 +131,8 @@ function movement() {
 	if(ballX >= canvas.width-10-10) {
 		if(ballY > palkarY && ballY < palkarY + PADDLE_HEIGHT) {
 			ballSpeedX = -ballSpeedX;
-			if(ballSpeedX > 0) ballSpeedX += 
+			if(ballSpeedX > 0) ballSpeedX += level;
+			else ballSpeedX += -level;
 			var deltaY = ballY - (palkarY + PADDLE_HEIGHT/2);
 			ballSpeedY = deltaY * 0.34;
 		} else {
