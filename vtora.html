@@ -1,0 +1,47 @@
+<html>
+<canvas id="canvasID" width="800" height="600"></canvas>
+<script type="text/javascript">
+
+var canvas;
+var canvasContext;
+
+var brojTiles = 24;
+
+const TILES_WIDTH = (800 / 6) - 70;
+const TILES_HEIGHT = 15;
+const PADDLE_HEIGHT = 10;
+var PADDLE_WIDTH = 150;
+
+window.onload = function() {
+	main();
+}
+
+function main() {
+	canvas = document.getElementById('canvasID');
+	canvasContext = canvas.getContext('2d');
+	
+	draw(); //crtanje
+}
+
+function rekt(x, y, w, h, c) {
+	canvasContext.fillStyle = c;
+	canvasContext.fillRect(x, y, w, h);
+}
+
+function drawTiles() {
+	for(i = 0; i < 6; i++) {
+		for(j = 0; j < 3; j++) {
+			rekt(i*130+10, j*20+20, 120, 15, 'white');
+		}
+	}
+}
+
+
+function draw() {
+	rekt(0, 0, canvas.width, canvas.height, 'black'); 
+	drawTiles();
+}
+
+
+</script>
+</html>
